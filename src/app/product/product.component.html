@@ -1,0 +1,8 @@
+<h2>Liste des produits</h2>
+
+<input type="text" placeholder="Recherche">
+
+<div *ngFor="let product of products">
+  {{product.id}} - {{product.name}} - {{product.description}}
+    <br><br>
+</div>
