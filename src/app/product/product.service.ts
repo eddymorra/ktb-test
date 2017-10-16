@@ -18,4 +18,10 @@ export class ProductService {
             .map(products => products.json())
     }
 
+    getProductById(productId: number) {
+        return this._http.get('https://test-recrutement.loyaltyexpert.net/products/' + productId)
+        .do(x => console.log("X : " + x))
+        .map(products => products.json())
+    }
+
 }
