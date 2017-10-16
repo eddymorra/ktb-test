@@ -1,8 +1,9 @@
-<h2>Liste des produits</h2>
+<h2>Products list</h2>
 
-<input type="text" placeholder="Recherche">
+<div>
+  Filtrer par : <input type="text" [(ngModel)]="searchTerm" placeholder="Mots clés..." />
+</div><br>
 
-<div *ngFor="let product of products">
-  {{product.id}} - {{product.name}} - {{product.description}}
-    <br><br>
+<div *ngFor="let product of products | productFilter:searchTerm">
+    <product-summary [product]="product"></product-summary>
 </div>

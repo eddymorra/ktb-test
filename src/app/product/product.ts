@@ -4,6 +4,6 @@ export class Product {
     id: number;
     name: string;
     description: string;
-    /*brand: [];
-    category: [];*/
+    brand: any;
+    category: any;
 }

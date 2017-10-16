@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProductModule } from './product/product.module';
 
 import { ProductComponent } from './product/product.component';
+import { ProductDetailsComponent } from './product/product-details.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 @NgModule({
@@ -19,8 +20,9 @@ import { PageNotFoundComponent } from './page-not-found.component';
     HttpModule,
     ProductModule,
     RouterModule.forRoot([
-      { path: 'home', component: ProductComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'products', component: ProductComponent },
+      { path: 'products/:id', component: ProductDetailsComponent },
+      { path: '', redirectTo: 'products', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent }
     ])
   ],
