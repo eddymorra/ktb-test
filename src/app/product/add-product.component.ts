@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Brand } from './brand';
 import { Categories } from './categories';
 import { NgForm } from '@angular/forms';
-import { AddProductService } from './add-product.service'
+import { AddProductService } from './add-product.service';
+import { ProductService } from './product.service';
 
 @Component({
     moduleId: module.id,
@@ -13,18 +14,18 @@ export class AddProductComponent {
     brands: Brand[];
     categories: Categories[];
 
-    constructor(private _addProductService: AddProductService) {
+    constructor(private _ProductService: ProductService, private _addProductService: AddProductService) {
 
     }
 
     ngOnInit() {
-        this._addProductService.getBrandsFromAPI()
+        this._ProductService.getBrandsFromAPI()
           .subscribe(
               res => this.brands = res,
               err => console.log(err.status)
           );
 
-        this._addProductService.getCategoriesFromAPI()
+        this._ProductService.getCategoriesFromAPI()
         .subscribe(
             res => this.categories = res,
             err => console.log(err.status)

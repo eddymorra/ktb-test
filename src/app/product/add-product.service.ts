@@ -11,16 +11,6 @@ export class AddProductService {
         
     }
 
-    getBrandsFromAPI() {
-        return this._http.get('https://test-recrutement.loyaltyexpert.net/brands')
-            .map(brands => brands.json())
-    }
-
-    getCategoriesFromAPI() {
-        return this._http.get('https://test-recrutement.loyaltyexpert.net/categories')
-            .map(categories => categories.json())
-    }
-
     postAddProductForm(addProductFormValue: any) {
         const body = {
             "name": addProductFormValue.name,

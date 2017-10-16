@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
+import { Brand } from './brand';
+import { Categories } from './categories';
 import { ProductService } from './product.service';
 
 @Component({
@@ -11,6 +13,8 @@ import { ProductService } from './product.service';
 export class ProductComponent implements OnInit {
 
   products: Product[];
+  brands: Brand[];
+  categories: Categories[];
 
   constructor(private _productService: ProductService) { }
 
@@ -20,7 +24,18 @@ export class ProductComponent implements OnInit {
         res => this.products = res,
         err => console.log("Erreur : " + err.status)
       );
-    console.log("Products : " + this.products);
+
+    this._productService.getBrandsFromAPI()
+      .subscribe(
+          res => this.brands = res,
+          err => console.log(err.status)
+      );
+
+    this._productService.getCategoriesFromAPI()
+    .subscribe(
+        res => this.categories = res,
+        err => console.log(err.status)
+    );
   }
 
 }

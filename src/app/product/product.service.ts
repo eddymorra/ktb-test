@@ -14,14 +14,22 @@ export class ProductService {
 
     getProductsFromAPI() {
         return this._http.get('https://test-recrutement.loyaltyexpert.net/products')
-            .do(x => console.log("X : " + x))
             .map(products => products.json())
     }
 
     getProductById(productId: number) {
         return this._http.get('https://test-recrutement.loyaltyexpert.net/products/' + productId)
-        .do(x => console.log("X : " + x))
         .map(products => products.json())
+    }
+
+    getBrandsFromAPI() {
+        return this._http.get('https://test-recrutement.loyaltyexpert.net/brands')
+            .map(brands => brands.json())
+    }
+
+    getCategoriesFromAPI() {
+        return this._http.get('https://test-recrutement.loyaltyexpert.net/categories')
+            .map(categories => categories.json())
     }
 
 }
