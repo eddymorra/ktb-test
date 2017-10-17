@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Brand } from './brand';
 import { Categories } from './categories';
 import { NgForm } from '@angular/forms';
@@ -7,25 +7,23 @@ import { ProductService } from './product.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'add-product.component.html'
+    templateUrl: 'add-product.component.html',
 })
-export class AddProductComponent {
-
+export class AddProductComponent implements OnInit {
+    
     brands: Brand[];
     categories: Categories[];
 
-    constructor(private _ProductService: ProductService, private _addProductService: AddProductService) {
-
-    }
+    constructor(private _productService: ProductService, private _addProductService: AddProductService) {}
 
     ngOnInit() {
-        this._ProductService.getBrandsFromAPI()
+        this._productService.getBrandsFromAPI()
           .subscribe(
               res => this.brands = res,
               err => console.log(err.status)
           );
 
-        this._ProductService.getCategoriesFromAPI()
+        this._productService.getCategoriesFromAPI()
         .subscribe(
             res => this.categories = res,
             err => console.log(err.status)

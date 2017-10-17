@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProductModule } from './product/product.module';
 import { AddProductModule } from './product/add-product.module';
+import { EditProductModule } from './product/edit/edit-product.module';
 
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product/product-details.component';
 import { AddProductComponent } from './product/add-product.component';
+import { EditProductComponent } from './product/edit/edit-product.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 @NgModule({
@@ -22,10 +24,12 @@ import { PageNotFoundComponent } from './page-not-found.component';
     HttpModule,
     ProductModule,
     AddProductModule,
+    EditProductModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductComponent },
       { path: 'products/:id', component: ProductDetailsComponent },
       { path: 'add', component: AddProductComponent },
+      { path: 'edit/:id', component: EditProductComponent },
       { path: '', redirectTo: 'products', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent }
     ])

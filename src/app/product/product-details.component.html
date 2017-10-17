@@ -1,5 +1,10 @@
 <h2>Product Details [id: {{products.id}}]</h2>
 
+<div class="lineButtons">
+  <a class="btn btn-default" (click)="goBack()">Retour</a>
+  <a class="btn btn-info" (click)="goEdit(products.id)">Modifier</a>
+</div>
+
 <div class="panel panel-default">
     <div class="panel-heading">{{products.name}}</div>
     <div class="panel-body">
@@ -12,7 +17,3 @@
       <li class="list-group-item"><img src="{{products.image}}" alt="image product"></li>
     </ul>
   </div>
-
-<div>
-    <a class="btn btn-default" (click)="goBack()">Retour</a>
-</div>
