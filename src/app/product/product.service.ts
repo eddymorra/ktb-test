@@ -3,7 +3,6 @@ import { Http } from '@angular/http';
 
 import { Product } from './product';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
 
 @Injectable()
 export class ProductService {
