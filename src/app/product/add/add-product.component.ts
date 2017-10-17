@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Brand } from './brand';
-import { Categories } from './categories';
+import { Brand } from '../brand';
+import { Categories } from '../categories';
 import { NgForm } from '@angular/forms';
 import { AddProductService } from './add-product.service';
-import { ProductService } from './product.service';
+import { ProductService } from '../product.service';
 
 @Component({
     moduleId: module.id,
