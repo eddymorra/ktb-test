@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
     this._productService.getProductsFromAPI()
       .subscribe(
         res => this.products = res,
-        err => console.log("Erreur : " + err.status)
+        err => console.log(err.status)
       );
 
     this._productService.getBrandsFromAPI()

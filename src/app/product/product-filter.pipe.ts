@@ -44,6 +44,14 @@ export class ProductFilterPipe implements PipeTransform {
                     product.brand.name.toLowerCase().includes(searchBrand.toLowerCase())
                 );
                 return result;
+            } else if (searchTerm != '' && searchCat != '' && searchBrand != '') {
+                let result = value.filter((product: Product) => 
+                    (product.description.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+                    product.brand.name.toLowerCase().includes(searchBrand.toLowerCase()) && 
+                    product.categories[0].name.toLowerCase().includes(searchCat.toLowerCase())
+                );
+                return result;
             }
         } else {
             return value;

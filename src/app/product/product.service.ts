@@ -10,7 +10,7 @@ export class ProductService {
     constructor(private _http:Http) {}
 
     getProductsFromAPI() {
-        return this._http.get('https://test-recrutement.loyaltyexpert.net/products')
+        return this._http.get('https://test-recrutement.loyaltyexpert.net/products?sort=desc')
             .map(products => products.json())
     }
 
