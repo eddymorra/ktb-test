@@ -7,27 +7,44 @@ import { Product } from './product';
 export class ProductFilterPipe implements PipeTransform {
 
     transform(value: Product[], searchTerm: string = '', searchCat: string = '', searchBrand: string = '') {
-        console.log(searchTerm);
-        console.log(searchBrand);
-        
-        if (searchTerm !== '' || searchCat !== '' || searchBrand !== '') {
-            if (searchTerm !== '' && searchCat == '' && searchBrand == '') {
+        if (searchTerm != '' || searchCat != '' || searchBrand != '') {
+            if (searchTerm != '' && searchCat == '' && searchBrand == '') {
                 let result = value.filter((product: Product) => 
-                    product.description.toLowerCase().includes(searchTerm) || 
-                    product.name.toLowerCase().includes(searchTerm)
+                    product.description.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase())
                 );
                 return result;
-            } else if (searchTerm == '' && searchCat == '' && searchBrand !== '') {
+            } else if (searchTerm == '' && searchCat == '' && searchBrand != '') {
                 let result = value.filter((product: Product) => 
-                    product.brand.id.includes(searchBrand)
+                    product.brand.name.toLowerCase().includes(searchBrand.toLowerCase())
                 );
                 return result;
-            } /*else if (searchTerm == '' && searchCat !== '' && searchBrand == '') {
+            } else if (searchTerm == '' && searchCat != '' && searchBrand == '') {
                 let result = value.filter((product: Product) => 
-                    product.categories.id.includes(searchCat)
+                    product.categories[0].name.toLowerCase().includes(searchCat.toLowerCase())
                 );
                 return result;
-            }*/
+            } else if (searchTerm != '' && searchCat != '' && searchBrand == '') {
+                let result = value.filter((product: Product) => 
+                    (product.description.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+                    product.categories[0].name.toLowerCase().includes(searchCat.toLowerCase())
+                );
+                return result;
+            } else if (searchTerm != '' && searchCat == '' && searchBrand != '') {
+                let result = value.filter((product: Product) => 
+                    (product.description.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+                    product.brand.name.toLowerCase().includes(searchBrand.toLowerCase())
+                );
+                return result;
+            } else if (searchTerm == '' && searchCat != '' && searchBrand != '') {
+                let result = value.filter((product: Product) => 
+                    product.categories[0].name.toLowerCase().includes(searchCat.toLowerCase()) &&
+                    product.brand.name.toLowerCase().includes(searchBrand.toLowerCase())
+                );
+                return result;
+            }
         } else {
             return value;
         }

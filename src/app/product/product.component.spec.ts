@@ -4,6 +4,10 @@ import { DebugElement }    from '@angular/core';
 import { ProductComponent } from './product.component';
 import { ProductService } from './product.service';
 
+import { Product } from './product';
+import { Brand } from './brand';
+import { Categories } from './categories';
+
 describe('ProductComponent', () => {
   let component: ProductComponent;
   let fixture: ComponentFixture<ProductComponent>;
@@ -12,6 +16,9 @@ describe('ProductComponent', () => {
 
   beforeEach(async(() => {
     //_productServiceStub = {};
+    let products: Product[];
+    let brands: Brand[];
+    let categories: Categories[];
 
     TestBed.configureTestingModule({
       declarations: [ ProductComponent ],
@@ -30,6 +37,11 @@ describe('ProductComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('Test JSON non null', () => {
+    this._productService.getProductsFromAPI();
     expect(component).toBeTruthy();
   });
 });

@@ -6,15 +6,15 @@
   Category : 
   <select [(ngModel)]="searchCat">
     <option value="" selected>All</option>
-    <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+    <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
   </select>
   Brand : 
   <select [(ngModel)]="searchBrand">
     <option value="" selected>All</option>
-    <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>
+    <option *ngFor="let brand of brands" value="{{brand.name}}">{{brand.name}}</option>
   </select>
 </div><br>
 
-<div *ngFor="let product of products | productFilter:searchTerm | productFilter:searchBrand">
+<div *ngFor="let product of products | productFilter : searchTerm : searchCat : searchBrand">
     <product-summary [product]="product"></product-summary>
 </div>

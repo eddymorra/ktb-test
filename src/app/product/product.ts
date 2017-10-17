@@ -5,5 +5,5 @@ export class Product {
     name: string;
     description: string;
     brand: any;
-    category: any;
+    categories: any;
 }

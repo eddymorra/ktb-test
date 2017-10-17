@@ -7,9 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductService {
 
-    constructor(private _http:Http) {
-        
-    }
+    constructor(private _http:Http) {}
 
     getProductsFromAPI() {
         return this._http.get('https://test-recrutement.loyaltyexpert.net/products')

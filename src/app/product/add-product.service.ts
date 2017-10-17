@@ -8,9 +8,7 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class AddProductService {
 
-    constructor(private _http:Http, private router: Router) {
-        
-    }
+    constructor(private _http:Http, private router: Router) {}
 
     postAddProductForm(addProductFormValue: any) {
         const headers = new Headers({ 'Content-Type': 'application/json' });
@@ -22,18 +20,14 @@ export class AddProductService {
             "categories": {"id": addProductFormValue.categories},
             "brand": addProductFormValue.brand
         }
-        return this._http.post(
+        this._http.post(
             'https://test-recrutement.loyaltyexpert.net/products', 
             JSON.stringify(body), options
         ).subscribe(
-            function (xhr) {
-                console.log(xhr);
-            },
-            function (err) {
-                // Log the error
-            }
+            function (xhr) {console.log(xhr);},
+            function (err) {}
         );
-        //return this.router.navigate(['/products']);
+        return this.router.navigate(['/products']);
     }
 
 }

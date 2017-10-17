@@ -15,6 +15,4 @@ import { ProductSummaryComponent } from './product-summary.component';
     exports: [ProductComponent],
     providers: [ProductService]
 })
-export class ProductModule {
-
-}
+export class ProductModule {}
