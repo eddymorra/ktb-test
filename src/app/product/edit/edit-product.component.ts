@@ -24,6 +24,10 @@ export class EditProductComponent implements OnInit {
         private _route: ActivatedRoute
     ) {}
 
+    goProduct(productId: number) {
+        this._router.navigate(['/products/' + productId]);
+    }
+
     ngOnInit() {
         this._productService.getBrandsFromAPI()
           .subscribe(

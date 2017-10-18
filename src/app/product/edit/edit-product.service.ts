@@ -27,7 +27,7 @@ export class EditProductService {
             function (xhr) {console.log(xhr);},
             function (err) {}
         );
-        return this.router.navigate(['/products']);
+        return this.router.navigate(['/products/' + productId]);
     }
 
 }
