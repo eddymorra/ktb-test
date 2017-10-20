@@ -10,13 +10,13 @@ export class ProductService {
     constructor(private _http:Http) {}
 
     getProductsFromAPI() {
-        return this._http.get('https://test-recrutement.loyaltyexpert.net/products?sort=desc')
-            .map(products => products.json())
+        return this._http.get('https://test-recrutement.loyaltyexpert.net/products')
+            .map(products => products.json());
     }
 
     getProductById(productId: number) {
         return this._http.get('https://test-recrutement.loyaltyexpert.net/products/' + productId)
-        .map(products => products.json())
+            .map(products => products.json())
     }
 
     getBrandsFromAPI() {
