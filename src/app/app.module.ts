@@ -9,7 +9,7 @@ import { AddProductModule } from './product/add/add-product.module';
 import { EditProductModule } from './product/edit/edit-product.module';
 
 import { ProductComponent } from './product/product.component';
-import { ProductDetailsComponent } from './product/product-details.component';
+import { ProductDetailsComponent } from './product/detail/product-details.component';
 import { AddProductComponent } from './product/add/add-product.component';
 import { EditProductComponent } from './product/edit/edit-product.component';
 import { PageNotFoundComponent } from './page-not-found.component';

@@ -3,7 +3,7 @@
 <div>
   Filtrer par : 
   <input type="text" [(ngModel)]="searchTerm" placeholder="Mots clés..." />
-  Category : 
+  <!--Category : 
   <select [(ngModel)]="searchCat">
     <option value="" selected>All</option>
     <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
@@ -13,10 +13,14 @@
     <option value="" selected>All</option>
     <option *ngFor="let brand of brands" value="{{brand.name}}">{{brand.name}}</option>
   </select>
-</div><br>
+</div>--><br><br>
 
-<!--{{products | json}}-->
-
-<div *ngFor="let product of products | productFilter : searchTerm : searchCat : searchBrand">
+<div *ngFor="let product of products | productFilter : searchTerm : searchCat : searchBrand | slice:debPage:finPage">
     <product-summary [product]="product"></product-summary>
 </div>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li *ngFor="let page of tabPage" (click)="selectPage($event, page)"><a href="#">{{page + 1}}</a></li>
+  </ul>
+</nav>

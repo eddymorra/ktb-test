@@ -12,17 +12,19 @@ import { ProductService } from '../product.service';
     templateUrl: 'edit-product.component.html',
 })
 export class EditProductComponent implements OnInit {
-    
-    brands: Brand[];
+
+    brands: Brand;
     categories: Categories[];
-    products: Product[];
+    products: Product;
 
     constructor(
-        private _productService: ProductService, 
+        private _productService: ProductService,
         private _editProductService: EditProductService,
         private _router: Router,
         private _route: ActivatedRoute
-    ) {}
+    ) {
+        this.products = {md5: '', image: '', id: 0, name: '', description: '', brand: '', categories: [{id: 0, name: ''}]};
+    }
 
     goProduct(productId: number) {
         this._router.navigate(['/products/' + productId]);
@@ -40,10 +42,11 @@ export class EditProductComponent implements OnInit {
             res => this.categories = res,
             err => console.log(err.status)
         );
+
         this._productService.getProductById(this._route.snapshot.params['id'])
         .subscribe(
           res => this.products = res,
-          err => console.log("Erreur : " + err.status)
+          err => console.log('Erreur : ' + err.status)
         );
       }
 

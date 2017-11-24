@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from './product';
-import { ProductService } from './product.service';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
     moduleId: module.id,
@@ -10,15 +10,17 @@ import { ProductService } from './product.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-    products: Product[];
+    products: Product;
 
-    constructor(private _route: ActivatedRoute, private _router: Router, private _productService: ProductService) {}
+    constructor(private _route: ActivatedRoute, private _router: Router, private _productService: ProductService) {
+        this.products = {md5: '', image: '', id: 0, name: '', description: '', brand: '', categories: [{id: 0, name: ''}]};
+    }
 
     ngOnInit() {
         this._productService.getProductById(this._route.snapshot.params['id'])
         .subscribe(
           res => this.products = res,
-          err => console.log("Erreur : " + err.status)
+          err => console.log('Erreur : ' + err.status)
         );
     }
 

@@ -1,7 +1,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
-        <a [routerLink]="['/products', product.id]">{{product.name | uppercase}}</a> 
+        <a [routerLink]="['/products', product.id]">
+          <img src="{{product.image}}" width="120">
+          {{product.name | uppercase}}
+        </a> 
         <!--(Brand : {{product.brand.name}})
         (Category : {{product.categories[0].name}})-->
       </h3>

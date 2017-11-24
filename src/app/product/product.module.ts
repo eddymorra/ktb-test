@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 import { ProductComponent } from './product.component';
 import { ProductService } from './product.service';
-import { ProductDetailsComponent } from './product-details.component';
+import { ProductDetailsComponent } from './detail/product-details.component';
 import { ProductFilterPipe } from './product-filter.pipe';
-import { ProductSummaryComponent } from './product-summary.component';
+import { ProductSummaryComponent } from './summary/product-summary.component';
 
 @NgModule({
     imports: [CommonModule, RouterModule, FormsModule],
